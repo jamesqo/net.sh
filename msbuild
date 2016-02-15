@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ "$OSTYPE" != msys ]; then
+    echo 'This script is only supported from Git Bash.'
+    exit 1
+fi
+
+# Get 32-bit Program Files
+arch=$(uname -m)
+if [ "$arch" = x86_64 ]; then
+    pfiles='/c/Program Files (x86)'
+else
+    pfiles='/c/Program Files'
+fi
+
+rootdir="$pfiles/MSBuild/Bin"
+if [ ! -d "$rootdir" ]; then
+    echo "It doesn't look like you have MSBuild installed; $rootdir doesn't exist."
+    exit 2
+fi
+
+exec "$rootdir/msbuild.exe" "$@"
