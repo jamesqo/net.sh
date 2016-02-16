@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+pushd . 1> /dev/null
+
 root=$(dirname "$0")
 cd "$root"
 
 targetdir=$(detail/find_latest_msbuild_dir)
+popd 1> /dev/null
 exec "$targetdir/Bin/msbuild.exe" "$@"
