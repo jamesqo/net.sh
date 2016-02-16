@@ -5,6 +5,7 @@ A couple of scripts that make it less painful to use Git Bash for .NET devs.
 ## Installation
 
 ```bash
+cd /tmp
 git clone git@github.com:jamesqo/sh.net
 cd sh.net
 chmod a+rx install && ./install
