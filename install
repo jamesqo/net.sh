@@ -15,7 +15,7 @@ wpwd()
     powershell 'Write-Host -NoNewline $pwd'
 }
 
-targetdir=~/AppData/Local/sh.net
+targetdir=~/AppData/Local/net.sh
 
 # Cleanup from previous installs
 rm -rf "$targetdir"
