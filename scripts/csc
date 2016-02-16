@@ -3,5 +3,5 @@
 root=$(dirname "$0")
 cd "$root"
 
-targetdir=$(find_msbuild_bin)
+targetdir=$(detail/find_msbuild_bin)
 exec "$targetdir/csc.exe" "$@"
