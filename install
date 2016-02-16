@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+get_path()
+{
+    powershell "[Environment]::GetEnvironmentVariable('PATH', 'User')"
+}
+
+set_path()
+{
+    powershell "[Environment]::SetEnvironmentVariable('PATH', '$1', 'User')"
+}
+
+wpwd()
+{
+    powershell 'Write-Host -NoNewline $pwd'
+}
+
 targetdir=~/AppData/Local/sh.net
 
 # Cleanup from previous installs
@@ -14,4 +29,11 @@ do
     # Do the work
     cat "$script" | tee "$dest" 1> /dev/null # use tee to handle null chars
     chmod a+rx "$dest" # modify permissions
+    
+    # Add to $PATH
+    if ! type "$name" &>/dev/null; then
+        current_path=$(get_path)
+        to_append=$(cd "$targetdir" && wpwd)
+        set_path "$current_path;$to_append"
+    fi
 done
