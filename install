@@ -21,7 +21,7 @@ targetdir=~/AppData/Local/sh.net
 rm -rf "$targetdir"
 mkdir -p "$targetdir"
 
-cp -r scripts "$targetdir" # copy the scripts recursively
+cp -rT scripts "$targetdir" # copy the scripts recursively
 find "$targetdir" -type f -exec chmod a+rx {} \; # modify permissions
 
 # Add the dir to $PATH
