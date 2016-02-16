@@ -1,6 +1,6 @@
 # sh.net
 
-A couple of scripts that make it less painful to use Git Bash for .NET devs.
+A couple of scripts that make Git Bash easier for .NET devs.
 
 ## Installation
 
