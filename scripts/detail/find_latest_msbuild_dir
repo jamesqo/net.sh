@@ -39,6 +39,4 @@ done
 
 # Get the latest version
 IFS=$'\n' sorted=($(sort -V <<< "${candidates[*]}"))
-targetdir="${sorted[-1]}" # -1 == the last element
-
-echo "$targetdir/Bin"
+echo "${sorted[-1]}" # -1 == the last element
