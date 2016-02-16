@@ -7,7 +7,7 @@ is_number()
 }
 
 if [ "$OSTYPE" != msys ]; then
-    echo 'This script is only supported from Git Bash.'
+    echo 'This script is only supported from Git Bash.' 1>&2
     exit 1
 fi
 
@@ -21,7 +21,7 @@ fi
 
 rootdir="$pfiles/MSBuild"
 if [ ! -d "$rootdir" ]; then
-    echo "It doesn't look like you have MSBuild installed; $rootdir doesn't exist."
+    echo "It doesn't look like you have MSBuild installed; $rootdir doesn't exist." 1>&2
     exit 2
 fi
 
@@ -40,3 +40,5 @@ done
 # Get the latest version
 IFS=$'\n' sorted=($(sort -V <<< "${candidates[*]}"))
 targetdir="${sorted[-1]}" # -1 == the last element
+
+echo "$targetdir/Bin"
