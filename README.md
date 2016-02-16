@@ -9,8 +9,7 @@ Just run this from your terminal:
 ```bash
 cd /tmp
 git clone git@github.com:jamesqo/sh.net
-cd sh.net
-chmod a+rx install && ./install
+cd sh.net && ./install
 ```
 
 ## Features
