@@ -1,44 +1,7 @@
 #!/usr/bin/env bash
 
-is_number()
-{
-    regex='^[0-9]+([.][0-9]+)?$'
-    [[ "$1" =~ "$regex" ]]
-}
+root=$(dirname "$0")
+cd "$root"
 
-if [ "$OSTYPE" != msys ]; then
-    echo 'This script is only supported from Git Bash.'
-    exit 1
-fi
-
-# Get 32-bit Program Files
-arch=$(uname -m)
-if [ "$arch" = x86_64 ]; then
-    pfiles='/c/Program Files (x86)'
-else
-    pfiles='/c/Program Files'
-fi
-
-rootdir="$pfiles/MSBuild"
-if [ ! -d "$rootdir" ]; then
-    echo "It doesn't look like you have MSBuild installed; $rootdir doesn't exist."
-    exit 2
-fi
-
-cd "$rootdir"
-
-# Unfortunately I don't know how to do filter in Bash
-candidates=()
-for subdir in *
-do
-    if ! is_number "$subdir"; then
-        continue
-    fi
-    candidates+=("$subdir")
-done
-
-# Get the latest version
-IFS=$'\n' sorted=($(sort -V <<< "${candidates[*]}"))
-targetdir="${sorted[-1]}" # -1 == the last element
-
+targetdir=$(find_msbuild_bin)
 exec "$targetdir/msbuild.exe" "$@"
