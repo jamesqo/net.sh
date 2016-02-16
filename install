@@ -2,10 +2,6 @@
 
 targetdir='/c/Program Files/sh.net'
 
-# Cleanup from previous installs
-rm -rf "$targetdir"
-mkdir -p "$targetdir"
-
 # Install sinister
 curl -sSLo /tmp/sinister http://git.io/sinister
 chmod a+rx /tmp/sinister
