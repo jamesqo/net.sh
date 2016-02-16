@@ -4,6 +4,8 @@ A couple of scripts that make it less painful to use Git Bash for .NET devs.
 
 ## Installation
 
+Just run this from your terminal:
+
 ```bash
 cd /tmp
 git clone git@github.com:jamesqo/sh.net
