@@ -27,7 +27,7 @@ sh.net adds a number of helpful commands to Git Bash, including:
 ```bash
 csc Class.cs
 msbuild Your.sln # or Your.csproj
-devenv Your.sln
+devenv Your.sln # or just vs
 ```
 
 ## License
