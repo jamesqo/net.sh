@@ -39,4 +39,6 @@ done
 
 # Get the latest version
 IFS=$'\n' sorted=($(sort -V <<< "${candidates[*]}"))
-echo "${sorted[-1]}" # -1 == the last element
+version="${sorted[-1]}" # -1 == the last element
+
+echo "$rootdir/$version"
