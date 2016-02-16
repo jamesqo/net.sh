@@ -18,7 +18,7 @@ chmod a+rx install && ./install
 sh.net adds a number of helpful commands to Git Bash, including:
 
 - devenv (Visual Studio)
- - vs (equivalent of `devenv *.sln`)
+ - vs (shorthand for `devenv *.sln`)
 - msbuild
 - csc (the C# compiler)
 
