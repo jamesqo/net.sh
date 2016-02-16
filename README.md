@@ -1,4 +1,4 @@
-# sh.net
+# net.sh
 
 A couple of scripts that make Git Bash easier for .NET devs.
 
@@ -8,13 +8,13 @@ Just run this from your terminal:
 
 ```bash
 cd /tmp
-git clone git@github.com:jamesqo/sh.net
-cd sh.net && ./install
+git clone git@github.com:jamesqo/net.sh
+cd net.sh && ./install
 ```
 
 ## Features
 
-sh.net adds a number of helpful commands to Git Bash, including:
+net.sh adds a number of helpful commands to Git Bash, including:
 
 - devenv (Visual Studio)
  - vs (shorthand for `devenv *.sln`)
