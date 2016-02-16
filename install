@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 
-targetdir='/c/Program Files/sh.net'
+targetdir=~/AppData/Local/sh.net
 
-# Install sinister
-curl -sSLo /tmp/sinister http://git.io/sinister
-chmod a+rx /tmp/sinister
-
-root=$(dirname "$0")
-cd "$root"
+# Cleanup from previous installs
+rm -rf "$targetdir"
+mkdir -p "$targetdir"
 
 for script in scripts/*
 do
     name=$(basename "$script")
-    cat "$script" | /tmp/sinister -o "$targetdir" -n "$name"
+    dest="$targetdir/$name"
+    
+    # Do the work
+    cat "$script" | tee "$dest" 1> /dev/null # use tee to handle null chars
+    chmod a+rx "$dest" # modify permissions
 done
