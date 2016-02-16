@@ -21,18 +21,11 @@ targetdir=~/AppData/Local/sh.net
 rm -rf "$targetdir"
 mkdir -p "$targetdir"
 
-for script in scripts/*
-do
-    name=$(basename "$script")
-    dest="$targetdir/$name"
-    
-    # Do the work
-    cat "$script" | tee "$dest" 1> /dev/null # use tee to handle null chars
-    chmod a+rx "$dest" # modify permissions
-done
+cp -r scripts "$targetdir" # copy the scripts recursively
+find "$targetdir" -type f -exec chmod a+rx {} \; # modify permissions
 
 # Add the dir to $PATH
-if ! type "$name" &>/dev/null; then
+if ! type devenv &>/dev/null; then
     current_path=$(get_path)
     to_append=$(cd "$targetdir" && wpwd)
     set_path "$current_path;$to_append"
