@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+pushd . > /dev/null
+
 root=$(dirname "$0")
 cd "$root"
 
 targetdir=$(detail/find_latest_msbuild_dir)
+popd > /dev/null
 exec "$targetdir/Bin/csc.exe" "$@"
